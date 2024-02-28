@@ -1,10 +1,10 @@
-package com.maxx.loan.loan;
+package com.maxx.loans;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class LoanApplicationTests {
+class LoansApplicationTests {
 
 	@Test
 	void contextLoads() {
