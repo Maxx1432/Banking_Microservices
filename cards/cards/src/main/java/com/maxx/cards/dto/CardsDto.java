@@ -39,11 +39,11 @@ public class CardsDto {
     )
     private int totalLimit;
 
-    @PositiveOrZero(message = "Total amount used should be equal or greater than zero")
+    @PositiveOrZero(message = "Total limit used should be equal or greater than zero")
     @Schema(
-            description = "Total amount used by a Customer", example = "1000"
+            description = "Total limit used by a Customer", example = "1000"
     )
-    private int amountUsed;
+    private int limitUsed;
 
     @PositiveOrZero(message = "Total available amount should be equal or greater than zero")
     @Schema(
