@@ -28,7 +28,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 		),
 		externalDocs = @ExternalDocumentation(
 				description = "Maxx Bank Cards microservice REST API Documentation",
-				url = "blank"
+				url = "https://www.maxxbank.com/swagger-ui.html"
 		)
 )
 public class CardsApplication {
