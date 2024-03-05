@@ -71,6 +71,9 @@ public class CardsServiceImpl implements ICardsService {
         Cards cards = cardsRepository.findByCardNumber(cardsDto.getCardNumber()).orElseThrow(
                 () -> new ResourceNotFoundException("Card", "CardNumber", cardsDto.getCardNumber()));
         CardsMapper.mapToCards(cardsDto, cards);
+        if(cards.getLimitUsed() >0){
+            cards.setAvailableLimit(cards.getTotalLimit() - cards.getLimitUsed());
+        }
         cardsRepository.save(cards);
         return  true;
     }
