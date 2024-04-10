@@ -1,6 +1,7 @@
 package com.maxx.accounts.controller;
 
 import com.maxx.accounts.constants.AccountsConstants;
+import com.maxx.accounts.dto.AccountsContactInfoDto;
 import com.maxx.accounts.dto.CustomerDto;
 import com.maxx.accounts.dto.ErrorResponseDto;
 import com.maxx.accounts.dto.ResponseDto;
@@ -43,6 +44,9 @@ public class AccountsController {
 
     @Autowired
     private Environment env;
+
+    @Autowired
+    private AccountsContactInfoDto accountsContactInfoDto;
 
     @Operation(
             summary = "Create account REST API",
@@ -203,8 +207,8 @@ public class AccountsController {
     }
 
     @Operation(
-            summary = "Fetch version of Java",
-            description = "REST API to fetch Version of Java"
+            summary = "Fetch contact info",
+            description = "REST API to fetch contact details"
     )
     @ApiResponses(
             {
@@ -221,10 +225,10 @@ public class AccountsController {
                     )
             }
     )
-    @GetMapping("/java-info")
-    public ResponseEntity<String> getJavaInfo(){
+    @GetMapping("/contact-info")
+    public ResponseEntity<AccountsContactInfoDto> getContactInfo(){
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(env.getProperty("JAVA_HOME"));
+                .body(accountsContactInfoDto);
     }
 }

@@ -17,3 +17,12 @@ spring:
 
 build:
   version: "1.0"
+
+accounts:
+  message: "Welcome to MaxxBank accounts related local APIs"
+  contactDetails:
+    name: "Mahendra Chawla"
+    email: "itssmaxx@gmail.com"
+  onCallSupport:
+    -(91) 99989-79695 
+    -(91) 95969-79899
