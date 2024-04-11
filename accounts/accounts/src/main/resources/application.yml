@@ -14,12 +14,20 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+  config:
+   import:
+    - "application_qa.yml"
+    - "application_prod.yml"
+  profiles:
+    active:
+      - "qa"
+
 
 build:
-  version: "1.0"
+  version: "3.0"
 
 accounts:
-  message: "Welcome to MaxxBank accounts related local APIs"
+  message: "Welcome to MaxxBank accounts related local default APIs"
   contactDetails:
     name: "Mahendra Chawla"
     email: "itssmaxx@gmail.com"
