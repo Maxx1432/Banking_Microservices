@@ -1,0 +1,16 @@
+spring:
+  config:
+    activate:
+      on-profile: "qa"
+
+build:
+  version: "2.0"
+
+cards:
+  message: "Welcome to MaxxBank cards related local QA APIs"
+  contactDetails:
+    name: "Mahendra Chawla - QA"
+    email: "itssmaxx_QA@gmail.com"
+  onCallSupport:
+    -(91) 99989-79695
+    -(91) 95969-79899
