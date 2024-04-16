@@ -9,6 +9,7 @@ import com.maxx.loans.mapper.LoansMapper;
 import com.maxx.loans.repository.LoansRepository;
 import com.maxx.loans.service.ILoansService;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
