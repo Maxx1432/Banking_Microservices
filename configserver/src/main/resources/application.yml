@@ -17,5 +17,8 @@ spring:
      clone-on-start: true
      force-pull: true
 
+encrypt:
+ key: "MAHE1998CHAW2601"
+
 server:
   port: 8071
