@@ -1,0 +1,60 @@
+services:
+  configserver:
+    image: "maxx26/configserver:S2"
+    container_name: configserver-ms
+    ports:
+      - "8071:8071"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - maxxbank
+  accounts:
+    image: "maxx26/accounts:S2"
+    container_name: accounts-ms
+    ports:
+      - "8080:8080"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - maxxbank
+    environment:
+      SPRING_APPLICTION_NAME: "accounts"
+      SPRING_CONFIG_IMPORT: "configserver:http://configserver:8071/"
+      SPRING_PROFILES_ACTIVE: default
+  loans:
+    image: "maxx26/loans:S2"
+    container_name: loans-ms
+    ports:
+      - "8090:8090"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - maxxbank
+    environment:
+      SPRING_APPLICTION_NAME: "loans"
+      SPRING_CONFIG_IMPORT: "configserver:http://configserver:8071/"
+      SPRING_PROFILES_ACTIVE: default
+  cards:
+    image: "maxx26/cards:S2"
+    container_name: cards-ms
+    ports:
+      - "9000:9000"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - maxxbank
+    environment:
+      SPRING_APPLICTION_NAME: "cards"
+      SPRING_CONFIG_IMPORT: "configserver:http://configserver:8071/"
+      SPRING_PROFILES_ACTIVE: default
+networks:
+  maxxbank:
+    driver: "bridge"
