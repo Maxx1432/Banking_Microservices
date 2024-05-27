@@ -11,6 +11,10 @@ services:
      timeout: 5s
      retries: 10
      start_period: 10s
+   extends:
+     file: common-config.yml
+     service: network-deploy-service
+
   configserver:
     image: "maxx26/configserver:S2"
     container_name: configserver-ms
@@ -25,66 +29,44 @@ services:
       timeout: 5s
       retries: 10
       start_period: 10s
-    deploy:
-      resources:
-        limits:
-          memory: 700m
-    networks:
-      - maxxbank
+    extends:
+      file: common-config.yml
+      service: microservice-base-config
+
   accounts:
     image: "maxx26/accounts:S2"
     container_name: accounts-ms
     ports:
       - "8080:8080"
-    depends_on:
-      configserver:
-        condition: service_completed_successfully
-    deploy:
-      resources:
-        limits:
-          memory: 700m
-    networks:
-      - maxxbank
     environment:
       SPRING_APPLICTION_NAME: "accounts"
-      SPRING_CONFIG_IMPORT: "configserver:http://configserver:8071/"
-      SPRING_PROFILES_ACTIVE: default
+    extends:
+      file: common-config.yml
+      service: microservice-configserver-config
+
+
   loans:
     image: "maxx26/loans:S2"
     container_name: loans-ms
     ports:
       - "8090:8090"
-    depends_on:
-      configserver:
-        condition: service_completed_successfully
-    deploy:
-      resources:
-        limits:
-          memory: 700m
-    networks:
-      - maxxbank
     environment:
       SPRING_APPLICTION_NAME: "loans"
-      SPRING_CONFIG_IMPORT: "configserver:http://configserver:8071/"
-      SPRING_PROFILES_ACTIVE: default
+    extends:
+      file: common-config.yml
+      service: microservice-configserver-config
+
   cards:
     image: "maxx26/cards:S2"
     container_name: cards-ms
     ports:
       - "9000:9000"
-    depends_on:
-      configserver:
-        condition: service_completed_successfully
-    deploy:
-      resources:
-        limits:
-          memory: 700m
-    networks:
-      - maxxbank
     environment:
       SPRING_APPLICTION_NAME: "cards"
-      SPRING_CONFIG_IMPORT: "configserver:http://configserver:8071/"
-      SPRING_PROFILES_ACTIVE: default
+    extends:
+      file: common-config.yml
+      service: microservice-configserver-config
+
 networks:
   maxxbank:
     driver: "bridge"
