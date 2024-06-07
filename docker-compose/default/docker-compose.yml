@@ -30,7 +30,7 @@ services:
       service: microservice-db-config
 
   configserver:
-   image: "maxx26/configserver:S1"
+   image: "maxx26/configserver:S2"
    container_name: configserver-ms
    ports:
     - "8071:8071"
