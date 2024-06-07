@@ -30,7 +30,7 @@ services:
       service: microservice-db-config
 
   configserver:
-   image: "maxx26/configserver:S1"
+   image: "maxx26/configserver:S2"
    container_name: configserver-ms
    ports:
     - "8071:8071"
@@ -48,7 +48,7 @@ services:
       service: microservice-base-config
 
   accounts:
-    image: "maxx26/accounts:S1"
+    image: "maxx26/accounts:S2
     container_name: accounts-ms
     ports:
       - "8080:8080"
@@ -64,7 +64,7 @@ services:
 
 
   loans:
-    image: "maxx26/loans:S1"
+    image: "maxx26/loans:S2"
     container_name: loans-ms
     ports:
       - "8090:8090"
@@ -79,7 +79,7 @@ services:
       service: microservice-configserver-config
 
   cards:
-    image: "maxx26/cards:S1"
+    image: "maxx26/cards:S2"
     container_name: cards-ms
     ports:
       - "9000:9000"
