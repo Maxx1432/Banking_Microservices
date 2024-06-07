@@ -1,19 +1,33 @@
 services:
-  rabbit:
-   image: rabbitmq:3.13-management
-   hostname: rabbitmq
-   ports:
-     - "5672:5672"
-     - "15672:15672"
-   healthcheck:
-     test: rabbitmq-diagnostics check_port_connectivity
-     interval: 10s
-     timeout: 5s
-     retries: 10
-     start_period: 10s
-   extends:
-     file: common-config.yml
-     service: network-deploy-service
+  accountsdb:
+    container_name: accountsdb
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: accountsdb
+    extends:
+      file: common-config.yml
+      service: microservice-db-config
+
+  loansdb:
+    container_name: loansdb
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_DATABASE: loansdb
+    extends:
+      file: common-config.yml
+      service: microservice-db-config
+
+  cardsdb:
+    container_name: cardsdb
+    ports:
+      - 3308:3306
+    environment:
+      MYSQL_DATABASE: cardsdb
+    extends:
+      file: common-config.yml
+      service: microservice-db-config
 
   configserver:
    image: "maxx26/configserver:S1"
@@ -40,6 +54,10 @@ services:
       - "8080:8080"
     environment:
       SPRING_APPLICTION_NAME: "accounts"
+      SPRING_DATASOURCE_URL: "jdbc:mysql://accountsdb:3306/accountsdb"
+    depends_on:
+      accountsdb:
+        condition: service_healthy
     extends:
       file: common-config.yml
       service: microservice-configserver-config
@@ -52,6 +70,10 @@ services:
       - "8090:8090"
     environment:
       SPRING_APPLICTION_NAME: "loans"
+      SPRING_DATASOURCE_URL: "jdbc:mysql://loansdb:3307/loansdb"
+    depends_on:
+      loansdb:
+        condition: service_healthy
     extends:
       file: common-config.yml
       service: microservice-configserver-config
@@ -63,6 +85,10 @@ services:
       - "9000:9000"
     environment:
       SPRING_APPLICTION_NAME: "cards"
+      SPRING_DATASOURCE_URL: "jdbc:mysql://cardsdb:3308/cardsdb"
+    depends_on:
+      cardsdb:
+        condition: service_healthy
     extends:
       file: common-config.yml
       service: microservice-configserver-config

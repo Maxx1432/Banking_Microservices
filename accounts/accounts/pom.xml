@@ -89,7 +89,7 @@
 				<version>3.4.1</version>
 				<configuration>
 					<to>
-						<image>maxx26/${project.artifactId}:S1</image>
+						<image>maxx26/${project.artifactId}:S2</image>
 					</to>
 				</configuration>
 			</plugin>
