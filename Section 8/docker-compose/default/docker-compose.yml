@@ -1,0 +1,57 @@
+services:
+
+  configserver:
+   image: "maxx26/configserver:S8"
+   container_name: configserver-ms
+   ports:
+    - "8071:8071"
+   depends_on:
+     rabbit:
+      condition: service_healthy
+   healthcheck:
+     test: "curl --fail --silent localhost:8071/actuator/health/readiness | grep UP || exit 1"
+     interval: 10s
+     timeout: 5s
+     retries: 10
+     start_period: 10s
+   extends:
+      file: common-config.yml
+      service: microservice-base-config
+
+  accounts:
+    image: "maxx26/accounts:S8"
+    container_name: accounts-ms
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_APPLICTION_NAME: "accounts"
+    extends:
+      file: common-config.yml
+      service: microservice-configserver-config
+
+
+  loans:
+    image: "maxx26/loans:S8"
+    container_name: loans-ms
+    ports:
+      - "8090:8090"
+    environment:
+      SPRING_APPLICTION_NAME: "loans"
+    extends:
+      file: common-config.yml
+      service: microservice-configserver-config
+
+  cards:
+    image: "maxx26/cards:S8"
+    container_name: cards-ms
+    ports:
+      - "9000:9000"
+    environment:
+      SPRING_APPLICTION_NAME: "cards"
+    extends:
+      file: common-config.yml
+      service: microservice-configserver-config
+
+networks:
+  maxxbank:
+    driver: "bridge"

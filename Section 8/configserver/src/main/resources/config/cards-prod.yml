@@ -1,0 +1,11 @@
+build:
+  version: "1.0"
+
+cards:
+  message: "Welcome to MaxxBank cards related local PROD APIs"
+  contactDetails:
+    name: "Mahendra Chawla - PROD"
+    email: "itssmaxx_PROD@gmail.com"
+  onCallSupport:
+    -(91) 99989-79695
+    -(91) 95969-79899

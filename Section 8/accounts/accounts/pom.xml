@@ -66,10 +66,6 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-bus-amqp</artifactId>
-		</dependency>
 
 	</dependencies>
 
@@ -93,7 +89,7 @@
 				<version>3.4.1</version>
 				<configuration>
 					<to>
-						<image>maxx26/${project.artifactId}:S</image>
+						<image>maxx26/${project.artifactId}:S8</image>
 					</to>
 				</configuration>
 			</plugin>

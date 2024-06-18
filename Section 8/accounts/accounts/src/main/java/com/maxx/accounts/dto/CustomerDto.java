@@ -1,0 +1,38 @@
+package com.maxx.accounts.dto;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.constraints.*;
+import lombok.Data;
+
+@Data
+@Schema(
+        name = "Customer",
+        description = "Schema to hold Customer and Account information"
+)
+public class CustomerDto {
+
+    @Schema(
+            description = "Name of the customer",example = "Maxx"
+    )
+    @NotEmpty(message = "Name can not be empty")
+    @Size(min = 5,max = 30, message = "The length of the customer name should be between 5 and 30")
+    private String name;
+
+    @Schema(
+            description = "Email of the customer",example = "Maxx@gmail.com"
+    )
+    @NotEmpty(message = "Email can not be empty")
+    @Email(message = "please enter a valid email address")
+    private String email;
+
+    @Schema(
+            description = "Mobile number of the customer",example = "9998979695"
+    )
+    @Pattern(regexp = "(^$|[0-9]{10})",message = "Please enter a valid contact number of 10 digits")
+    private String mobileNumber;
+
+    @Schema(
+            description = "Accounts details of the customer"
+    )
+    private AccountsDto accountsDto;
+}
