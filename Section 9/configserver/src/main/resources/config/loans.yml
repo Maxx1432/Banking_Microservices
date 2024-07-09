@@ -1,0 +1,11 @@
+build:
+    version: "3.0"
+
+loans:
+  message: "Welcome to MaxxBank loans related local default APIs"
+  contactDetails:
+    name: "Mahendra Chawla"
+    email: "itssmaxx@gmail.com"
+  onCallSupport:
+    -(91) 99989-79695
+    -(91) 95969-79899
