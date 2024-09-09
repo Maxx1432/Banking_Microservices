@@ -14,10 +14,16 @@
         <option value="$PROJECT_DIR$/Section 8/configserver/pom.xml" />
         <option value="$PROJECT_DIR$/Section 8/eurekaserver/pom.xml" />
         <option value="$PROJECT_DIR$/Section 8/loans/loans/pom.xml" />
+        <option value="$PROJECT_DIR$/Section 9/configserver/pom.xml" />
+        <option value="$PROJECT_DIR$/Section 9/eurekaserver/pom.xml" />
+        <option value="$PROJECT_DIR$/Section 9/gatewayserver/pom.xml" />
+        <option value="$PROJECT_DIR$/Section 9/accounts/accounts/pom.xml" />
+        <option value="$PROJECT_DIR$/Section 9/cards/cards/pom.xml" />
+        <option value="$PROJECT_DIR$/Section 9/loans/loans/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="corretto-17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>

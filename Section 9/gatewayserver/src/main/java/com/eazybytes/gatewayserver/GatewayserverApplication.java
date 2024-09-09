@@ -16,23 +16,23 @@ public class GatewayserverApplication {
 	}
 
 	@Bean
-	public RouteLocator eazyBankRouteConfig(RouteLocatorBuilder routeLocatorBuilder) {
+	public RouteLocator maxxBankRouteConfig(RouteLocatorBuilder routeLocatorBuilder) {
 		return routeLocatorBuilder.routes()
 						.route(p -> p
-								.path("/eazybank/accounts/**")
-								.filters( f -> f.rewritePath("/eazybank/accounts/(?<segment>.*)","/${segment}")
+								.path("/maxxbank/accounts/**")
+								.filters( f -> f.rewritePath("/maxxbank/accounts/(?<segment>.*)","/${segment}")
 										.addResponseHeader("X-Response-Time", LocalDateTime.now().toString()))
-								.uri("lb://ACCOUNTS"))
+								.uri("lb://ACCOUNTS")) // It should be in Upper Case because it will match with Eureka service Registery
 					.route(p -> p
-							.path("/eazybank/loans/**")
-							.filters( f -> f.rewritePath("/eazybank/loans/(?<segment>.*)","/${segment}")
+							.path("/maxxbank/loans/**")
+							.filters( f -> f.rewritePath("/maxxbank/loans/(?<segment>.*)","/${segment}")
 									.addResponseHeader("X-Response-Time", LocalDateTime.now().toString()))
-							.uri("lb://LOANS"))
+							.uri("lb://LOANS")) // It should be in Upper Case because it will match with Eureka service Registery
 					.route(p -> p
-							.path("/eazybank/cards/**")
-							.filters( f -> f.rewritePath("/eazybank/cards/(?<segment>.*)","/${segment}")
+							.path("/maxxbank/cards/**")
+							.filters( f -> f.rewritePath("/maxxbank/cards/(?<segment>.*)","/${segment}")
 									.addResponseHeader("X-Response-Time", LocalDateTime.now().toString()))
-							.uri("lb://CARDS")).build();
+							.uri("lb://CARDS")).build(); // It should be in Upper Case because it will match with Eureka service Registery
 
 
 	}
