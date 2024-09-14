@@ -20,18 +20,15 @@ public class GatewayserverApplication {
 		return routeLocatorBuilder.routes()
 						.route(p -> p
 								.path("/maxxbank/accounts/**")
-								.filters( f -> f.rewritePath("/maxxbank/accounts/(?<segment>.*)","/${segment}")
-										.addResponseHeader("X-Response-Time", LocalDateTime.now().toString()))
+								.filters( f -> f.rewritePath("/maxxbank/accounts/(?<segment>.*)","/${segment}"))
 								.uri("lb://ACCOUNTS")) // It should be in Upper Case because it will match with Eureka service Registery
 					.route(p -> p
 							.path("/maxxbank/loans/**")
-							.filters( f -> f.rewritePath("/maxxbank/loans/(?<segment>.*)","/${segment}")
-									.addResponseHeader("X-Response-Time", LocalDateTime.now().toString()))
+							.filters( f -> f.rewritePath("/maxxbank/loans/(?<segment>.*)","/${segment}"))
 							.uri("lb://LOANS")) // It should be in Upper Case because it will match with Eureka service Registery
 					.route(p -> p
 							.path("/maxxbank/cards/**")
-							.filters( f -> f.rewritePath("/maxxbank/cards/(?<segment>.*)","/${segment}")
-									.addResponseHeader("X-Response-Time", LocalDateTime.now().toString()))
+							.filters( f -> f.rewritePath("/maxxbank/cards/(?<segment>.*)","/${segment}"))
 							.uri("lb://CARDS")).build(); // It should be in Upper Case because it will match with Eureka service Registery
 
 
