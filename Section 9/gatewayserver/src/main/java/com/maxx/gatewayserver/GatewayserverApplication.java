@@ -1,4 +1,4 @@
-package com.eazybytes.gatewayserver;
+package com.maxx.gatewayserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
