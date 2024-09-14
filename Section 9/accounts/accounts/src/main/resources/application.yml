@@ -52,3 +52,9 @@ info:
     name: "accounts"
     description: "Maxx Bank Accounts Application"
     version: "1.0.0"
+
+logging:
+  level:
+    com:
+      maxx:
+        accounts: DEBUG

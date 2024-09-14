@@ -52,3 +52,9 @@ info:
     name: "loans"
     description: "Maxx Bank Loans Application"
     version: "1.0.0"
+
+logging:
+  level:
+    com:
+      maxx:
+        loans: DEBUG
