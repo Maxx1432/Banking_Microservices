@@ -22,7 +22,7 @@ public class GatewayserverApplication {
 								.path("/maxxbank/accounts/**")
 								.filters( f -> f.rewritePath("/maxxbank/accounts/(?<segment>.*)","/${segment}")
 										.addResponseHeader("X-Response-Time",LocalDateTime.now().toString())
-										.circuitBreaker(config -> config.setName("accountsCircuitBreaker")))
+										.circuitBreaker(config -> config.setName("accountsCircuitBreaker").setFallbackUri("forward:/contactSupport")))
 								.uri("lb://ACCOUNTS")) // It should be in Upper Case because it will match with Eureka service Registery
 					.route(p -> p
 							.path("/maxxbank/loans/**")
