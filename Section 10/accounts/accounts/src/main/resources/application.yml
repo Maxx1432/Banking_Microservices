@@ -81,6 +81,13 @@ resilience4j.retry:
       retryException:
         - java.util.concurrent.TimeoutException
 
+resilience4j.ratelimiter:
+  configs:
+    default:
+      timeoutDuration: 1000
+      limitRefreshPeriod: 5000
+      limitForPeriod: 1
+
 info:
   app:
     name: "accounts"
@@ -92,3 +99,5 @@ logging:
     com:
       maxx:
         accounts: DEBUG
+
+java_home: 17

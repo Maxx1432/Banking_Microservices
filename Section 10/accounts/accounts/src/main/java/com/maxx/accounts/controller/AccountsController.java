@@ -6,6 +6,7 @@ import com.maxx.accounts.dto.CustomerDto;
 import com.maxx.accounts.dto.ErrorResponseDto;
 import com.maxx.accounts.dto.ResponseDto;
 import com.maxx.accounts.service.IAccountsService;
+import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
 import io.github.resilience4j.retry.annotation.Retry;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -185,6 +186,16 @@ public class AccountsController {
                     .status(HttpStatus.EXPECTATION_FAILED)
                     .body(new ResponseDto(AccountsConstants.STATUS_417, AccountsConstants.MESSAGE_417_DELETE));
         }
+    }
+
+    @RateLimiter(name = "getJavaVersion", fallbackMethod = "getJavaVersionFallback")
+    @GetMapping("/java-version")
+    public ResponseEntity<String>getJavaVersion(){
+        return ResponseEntity.status(HttpStatus.OK).body("17");
+    }
+
+    public ResponseEntity<String>getJavaVersionFallback(Throwable throwable){
+        return ResponseEntity.status(HttpStatus.OK).body("Java 17");
     }
 
     @Operation(

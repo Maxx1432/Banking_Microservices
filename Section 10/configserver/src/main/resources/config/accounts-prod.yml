@@ -1,5 +1,6 @@
 build:
   version: "1.0"
+java_home: "17"
 
 accounts:
   message: "Welcome to MaxxBank accounts related local PROD APIs"
