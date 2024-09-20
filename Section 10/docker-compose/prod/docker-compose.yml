@@ -12,7 +12,7 @@ services:
       service: network-deploy-service
 
   configserver:
-    image: "maxx26/configserver:s9"
+    image: "maxx26/configserver:s10"
     container_name: configserver-ms
     ports:
       - "8071:8071"
@@ -27,7 +27,7 @@ services:
       service: microservice-base-config
 
   eurekaserver:
-    image: "maxx26/eurekaserver:s9"
+    image: "maxx26/eurekaserver:s10"
     container_name: eurekaserver-ms
     ports:
       - "8070:8070"
@@ -44,7 +44,7 @@ services:
       SPRING_APPLICTION_NAME: "eurekaserver"
 
   accounts:
-    image: "maxx26/accounts:s9"
+    image: "maxx26/accounts:s10"
     container_name: accounts-ms
     ports:
       - "8080:8080"
@@ -62,7 +62,7 @@ services:
 
 
   loans:
-    image: "maxx26/loans:s9"
+    image: "maxx26/loans:s10"
     container_name: loans-ms
     ports:
       - "8090:8090"
@@ -79,7 +79,7 @@ services:
       service: microservice-eureka-config
 
   cards:
-    image: "maxx26/cards:s9"
+    image: "maxx26/cards:s10"
     container_name: cards-ms
     ports:
       - "9000:9000"
@@ -96,7 +96,7 @@ services:
       service: microservice-eureka-config
 
   gatewayserver:
-    image: "maxx26/gatewayserver:s9"
+    image: "maxx26/gatewayserver:s10"
     container_name: gatewayserver-ms
     ports:
       - "8072:8072"

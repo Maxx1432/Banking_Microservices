@@ -101,7 +101,7 @@
 				<version>3.4.1</version>
 				<configuration>
 					<to>
-						<image>maxx26/${project.artifactId}:s9</image>
+						<image>maxx26/${project.artifactId}:s10</image>
 					</to>
 				</configuration>
 			</plugin>
